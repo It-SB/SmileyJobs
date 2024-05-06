@@ -9,6 +9,9 @@ using Smile.Models.Applications;
 using Smile.Models.Admins;
 using SmileyJobs.Controllers;
 using Smile.Models.JobListing;
+
+//var builder = WebApplication.CreateBuilder(args);
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationSContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("ApplicationSContext") ?? throw new InvalidOperationException("Connection string 'ApplicationSContext' not found.")));

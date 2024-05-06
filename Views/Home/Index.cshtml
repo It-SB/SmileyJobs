@@ -1,4 +1,7 @@
-﻿@{
+﻿@using static Smile.Controllers.HomeController
+@model IEnumerable<Smile.Models.Jobs.Job>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -226,83 +229,31 @@
         <div class="row justify-content-center">
             <div class="col-xl-10">
                 <!-- single-job-content -->
-                <div class="single-job-items mb-30">
-                    <div class="job-items">
-                        @* <div class="company-img">
-                            <a href="job_details.html"><img src="~/img/icon/job-list1.png" alt=""></a>
-                        </div> *@
-                        <div class="job-tittle">
-                            <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                            <ul>
-                                <li>Creative Agency</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                <li>$3500 - $4000</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="items-link f-right">
-                        <a href="job_details.html">Full Time</a>
-                        <span>7 hours ago</span>
-                    </div>
-                </div>
-                <!-- single-job-content -->
-                <div class="single-job-items mb-30">
-                    <div class="job-items">
-                        @* <div class="company-img">
-                            <a href="job_details.html"><img src="~/img/icon/job-list2.png" alt=""></a>
-                        </div> *@
-                        <div class="job-tittle">
-                            <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                            <ul>
-                                <li>Creative Agency</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                <li>$3500 - $4000</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="items-link f-right">
-                        <a href="job_details.html">Full Time</a>
-                        <span>7 hours ago</span>
-                    </div>
-                </div>
-                <!-- single-job-content -->
-                <div class="single-job-items mb-30">
-                    <div class="job-items">
-                       @*  <div class="company-img">
-                            <a href="job_details.html"><img src="~/img/icon/job-list3.png" alt=""></a>
-                        </div> *@
-                        <div class="job-tittle">
-                            <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                            <ul>
-                                <li>Creative Agency</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                <li>$3500 - $4000</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="items-link f-right">
-                        <a href="job_details.html">Full Time</a>
-                        <span>7 hours ago</span>
-                    </div>
-                </div>
-                <!-- single-job-content -->
-                <div class="single-job-items mb-30">
-                    <div class="job-items">
-                       @*  <div class="company-img">
-                            <a href="job_details.html"><img src="~/img/icon/job-list4.png" alt=""></a>
-                        </div> *@
-                        <div class="job-tittle">
-                            <a href="job_details.html"><h4>Digital Marketer</h4></a>
-                            <ul>
-                                <li>Creative Agency</li>
-                                <li><i class="fas fa-map-marker-alt"></i>Athens, Greece</li>
-                                <li>$3500 - $4000</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="items-link f-right">
-                        <a href="job_details.html">Full Time</a>
-                        <span>7 hours ago</span>
+                <div class="row justify-content-center">
+                    <div class="col-xl-10">
+                        @foreach (var job in Model.Take(4))
+                        {
+                            <div class="single-job-items mb-30 shadow-sm ">
+                                <div class="job-items">
+                                    <div class="company-img">
+                                        <img src="@job.Category" alt="">
+                                    </div>
+                                    <div class="job-tittle job-tittle2">
+                                        <a href="@Url.Action("Details", "Jobs", new { id = job.Id })">
+                                            <h4>@StringHelper.Truncate(job.Description, 3)</h4>
+                                        </a>
+                                        <ul>
+                                            <li>@job.CompanyName</li>
+                                            <li><i class="fas fa-map-marker-alt"></i>@job.Location</li>
+                                            <li>@job.Salary</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="items-link items-link2 f-right">
+                                    <span>@job.PostedDate</span>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
@@ -361,6 +312,7 @@
     </div>
 </div>
 <!-- How  Apply Process End-->
+
 <!-- Testimonial Start -->
 <div class="testimonial-area testimonial-padding">
     <div class="container">
@@ -426,38 +378,6 @@
 </div>
 <!-- Testimonial End -->
 
-<!-- Support Company Start-->
-@* <div class="support-company-area support-padding fix">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-xl-6 col-lg-6">
-                <div class="right-caption">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle section-tittle2">
-                        <span>What we are doing</span>
-                        <h2>24k Talented people are getting Jobs</h2>
-                    </div>
-                    <div class="support-caption">
-                        <p class="pera-top">Mollit anim laborum duis au dolor in voluptate velit ess cillum dolore eu lore dsu quality mollit anim laborumuis au dolor in voluptate velit cillum.</p>
-                        <p>Mollit anim laborum.Duis aute irufg dhjkolohr in re voluptate velit esscillumlore eu quife nrulla parihatur. Excghcepteur signjnt occa cupidatat non inulpadeserunt mollit aboru. temnthp incididbnt ut labore mollit anim laborum suis aute.</p>
-                        <a href="about.html" class="btn post-btn">Post a job</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6">
-                <div class="support-location-img">
-                    <img src="~/img/service/support-img.jpg" alt="">
-                    <div class="support-img-cap text-center">
-                        <p>Since</p>
-                        <span>1994</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> *@
-
-<!-- Support Company End-->
 <!-- Blog Area Start -->
 <div class="home-blog-area blog-h-padding">
     <div class="container">

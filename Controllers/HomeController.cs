@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Smile.Models;
+using Smile.Models.Jobs;
 using System.Diagnostics;
 
 namespace Smile.Controllers
@@ -7,15 +9,66 @@ namespace Smile.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly JobsContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(JobsContext context, ILogger<HomeController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public static class StringHelper
         {
-            return View();
+            public static string Truncate(string input, int wordLimit)
+            {
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    return string.Empty;
+                }
+
+                string[] words = input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                if (words.Length <= wordLimit)
+                {
+                    return input;
+                }
+
+                return string.Join(" ", words.Take(wordLimit)) + "...";
+            }
+        }
+
+        // GET: Jobs
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                var results = await _context.Jobs.ToListAsync();
+
+                var resultsFiltered = results.Where(x => x.isFeatured == true ).OrderBy(x => x.PostedDate).ToList();
+
+                return View(resultsFiltered);
+            }
+            catch (Exception)
+            {
+                return View(new List<Job>());
+            }
+        }
+
+        // GET: Jobs/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var job = await _context.Jobs
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (job == null)
+            {
+                return NotFound();
+            }
+
+            return View(job);
         }
 
         public IActionResult Privacy()

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+yHY3l4ufpgFD6aq22DuVHeqj+L+ENrGzjk4XWivdd4W0eOBSvE9SOeVATLg1l/KlMf52swKoACYXI+pMdICMg==",
+  "dgSpecHash": "TwNblLzsnDQpTaVfcCRkIdg1x8q8JJAxvsmlumSbwPCQPECCxbNno2OytYS7T919r/ZWDIYRnWjTyUuEneNwyQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\27827\\source\\repos\\Smile\\Smile.csproj",
+  "projectFilePath": "C:\\Users\\27827\\Documents\\GitHub\\SmileyJobs\\Smile.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\27827\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\27827\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

@@ -34,4 +34,5 @@ public partial class Job
     public string? EducationLevel { get; set; }
 
     public string? ExperienceLevel { get; set; }
+    public bool? isFeatured { get; set; }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\27827\\source\\repos\\Smile\\Smile.csproj": {}
+    "C:\\Users\\27827\\Documents\\GitHub\\SmileyJobs\\Smile.csproj": {}
   },
   "projects": {
-    "C:\\Users\\27827\\source\\repos\\Smile\\Smile.csproj": {
+    "C:\\Users\\27827\\Documents\\GitHub\\SmileyJobs\\Smile.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\27827\\source\\repos\\Smile\\Smile.csproj",
+        "projectUniqueName": "C:\\Users\\27827\\Documents\\GitHub\\SmileyJobs\\Smile.csproj",
         "projectName": "Smile",
-        "projectPath": "C:\\Users\\27827\\source\\repos\\Smile\\Smile.csproj",
+        "projectPath": "C:\\Users\\27827\\Documents\\GitHub\\SmileyJobs\\Smile.csproj",
         "packagesPath": "C:\\Users\\27827\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\27827\\source\\repos\\Smile\\obj\\",
+        "outputPath": "C:\\Users\\27827\\Documents\\GitHub\\SmileyJobs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

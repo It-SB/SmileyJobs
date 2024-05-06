@@ -38,6 +38,7 @@ public partial class JobsContext : DbContext
             entity.Property(e => e.PostedDate).HasColumnType("datetime");
             entity.Property(e => e.Salary).HasMaxLength(100);
             entity.Property(e => e.Website).HasMaxLength(100);
+            entity.Property(e => e.isFeatured).HasColumnType("bit"); ;
         });
 
         OnModelCreatingPartial(modelBuilder);

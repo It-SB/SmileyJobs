@@ -41,7 +41,18 @@ namespace Smile.Controllers
         // GET: Jobs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Jobs.ToListAsync());
+            try
+            {
+                var results = await _context.Jobs.ToListAsync();
+
+                //var resultsFiltered = results.Where( x => x.isFeatured == true ).ToList();
+
+                return View(results);
+            }
+            catch (Exception)
+            {
+                return View(new List<Job>());
+            }
         }
 
         // GET: Jobs/Details/5
