@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Smile.Areas.Identity.Data
+
+@inject SignInManager<SmileUser> SignInManager
+@inject UserManager<SmileUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="header-btn d-none f-right d-lg-block">
+            <a class="btn head-btn1" asp-area="Identity" asp-page="/Account/Manage/Index">Manage Profile</a>
+            <a class="btn head-btn2" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+        </div>
+    }
+    else
+    {
+        <div class="header-btn d-none f-right d-lg-block">
+            <a class="btn head-btn1" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="btn head-btn2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </div>
+    }
+</ul>
